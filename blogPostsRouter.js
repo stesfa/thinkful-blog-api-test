@@ -17,6 +17,7 @@ function lorem() {
 }
 
 // seed some posts so initial GET requests will return something
+
 BlogPosts.create("10 things -- you won't believe #4", lorem(), "Billy Bob");
 BlogPosts.create("Lions and tigers and bears oh my", lorem(), "Lefty Lil");
 
@@ -24,6 +25,7 @@ BlogPosts.create("Lions and tigers and bears oh my", lorem(), "Lefty Lil");
 // and return JSON objects of stored blog posts.
 // send back JSON representation of all blog posts
 // on GET requests to root
+
 router.get("/", (req, res) => {
   res.json(BlogPosts.get());
 });
@@ -34,6 +36,7 @@ router.get("/", (req, res) => {
 // the id, which `BlogPosts` will create. This endpoint should
 // send a 400 error if the post doesn't contain
 // `title`, `content`, and `author`
+
 router.post("/", (req, res) => {
   // ensure `name` and `budget` are in request body
   const requiredFields = ["title", "content", "author"];
